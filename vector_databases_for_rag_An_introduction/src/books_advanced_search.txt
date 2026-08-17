@@ -1,0 +1,38 @@
+Create a new Python file named books_advanced_search.py and implement the following structure with comprehensive search capabilities.
+
+Exercise 1: Implement Similarity Search for Book Recommendations
+
+Create meaningful text documents for each book that combine title, description, themes, and setting information for semantic search.
+
+Hint: Combine multiple book attributes into descriptive text documents.
+
+Exercise 2: Implement Metadata Filtering
+
+Add the book data to your collection with comprehensive metadata for filtering capabilities.
+
+Hint: Include all book attributes as metadata for flexible filtering.
+
+Exercise 3: Create an Advanced Search Function
+
+Implement a function that demonstrates multiple search types:
+
+    Similarity search for "magical fantasy adventure"
+    Filter books by genre (Fantasy or Science Fiction)
+    Filter books by rating (4.0 or higher)
+    Combined search: Find highly-rated dystopian books with similarity search
+
+Hint: Use the same pattern as the employee search but adapt for book attributes.
+
+Exercise 4: Run Your Advanced Book Search
+
+Execute your script and observe the different types of search results.
+
+Hint: Use the same command pattern as the main lab.
+
+
+    Bonus Challenge: Extend the search to find books by specific criteria such as:
+        Books published in a specific decade
+        Books with similar page counts
+        Books that match multiple themes
+
+Note: Ensure your environment has the required Python packages installed.
