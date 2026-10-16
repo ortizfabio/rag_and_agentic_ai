@@ -1,0 +1,20 @@
+langchain>=1.0
+langchain-ibm==1.1.1
+langchain-community==0.4.2
+wikipedia==1.4.0
+openai
+langchain-openai==1.6.6
+ibm-watsonx-ai==1.5.13
+langchain-ibm==1.1.1
+langchain-ollama
+pytube
+youtube-transcript-api
+yt-dlp
+
+# Keep the llama-index packages on the same release line; mixing package versions
+# from different release trains triggers the ThinkingBlock import error.
+# Do not pin llama-index-core separately because the top-level llama-index package
+# manages that version and the 0.12.52 post-release is required for compatibility.
+llama-index==0.12.52
+llama-index-llms-langchain==0.6.1
+llama-index-llms-ollama==0.6.2
