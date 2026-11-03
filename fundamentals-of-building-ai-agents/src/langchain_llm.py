@@ -1,30 +1,21 @@
-from langchain_community.embeddings import OllamaEmbeddings
-from langchain_community.llms.ollama import Ollama
-import os
+from typing import Any
+
+from langchain.chat_models import init_chat_model
+from langchain.chat_models.base import _ConfigurableModel
+from langchain_core.language_models import BaseChatModel
+
+EMBEDDING_MODEL = "bge-m3"
+DEEPSEEK_R1_32B_MODEL = "hf.co/Bartowski/DeepSeek-R1-Distill-Qwen-32B-GGUF:Q4_K_M"
+URANUS_BASE_URL = "http://192.168.0.41:11434"
+LOCAL_BASE_URL = "http://127.0.0.1:11434"
+OLLAMA_MODEL_PROVIDER = "ollama"
 
 
-def llm():
-    # Define your Ollama-configured model name exactly as it's registered locally
-    # Note: Ensure you have run `ollama run hf.co/Bartowski/DeepSeek-R1-Distill-Qwen-32B-GGUF:Q4_K_M` first
-    model_id = "hf.co/Bartowski/DeepSeek-R1-Distill-Qwen-32B-GGUF:Q4_K_M"
-
-    # Configure Ollama parameters
-    # (temperature and token adjustments match your original configuration layout)
-    ollama_llm = Ollama(
-        #base_url="http://localhost:11434",  # Default local Ollama instance path
-        model=model_id,
-        base_url=os.environ.get("Ollama_HOST", "http://192.168.0.41:11434"),
-        temperature=0.5,
-        num_predict=256,  # Equivalent to MAX_NEW_TOKENS
-    )
-
-    return ollama_llm
-
-def model_embedding():
-    # Use the locally pulled Nomic embedding model
-    local_emb = OllamaEmbeddings(
-        base_url=os.environ.get("Ollama_HOST", "http://192.168.0.41:11434"),
-        model="bge-m3",
-        #model="nomic-embed-text"
-    )
-    return local_emb
+def get_llm(model: str | None = None,
+        model_provider: str | None = None,
+        config_prefix: str | None = None,
+        **kwargs: Any,
+        ) -> BaseChatModel | _ConfigurableModel:
+    """This is a wrapper for langchain.chatmodels.init_chat_model to provide a consistent
+    interface for initializing chat models with optional parameters."""
+    return init_chat_model(model=model, model_provider=model_provider, config_prefix=config_prefix, **kwargs)

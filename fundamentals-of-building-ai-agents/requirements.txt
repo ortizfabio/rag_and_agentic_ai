@@ -3,7 +3,8 @@ langchain-ibm==1.1.1
 langchain-community==0.4.2
 wikipedia==1.4.0
 openai
-langchain-openai==1.6.6
+langchain-openai
+langchain-core
 ibm-watsonx-ai==1.5.13
 langchain-ibm==1.1.1
 langchain-ollama
